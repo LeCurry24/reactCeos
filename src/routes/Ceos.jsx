@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, Link } from "react-router-dom";
 
 export async function loader() {
     const response = await fetch('http://localhost:8000/ceos');
@@ -13,13 +13,13 @@ const Ceos = () => {
     console.log(data)
     return(
         <>
-            <h2>ceos is here</h2>
-            <p>here i am</p>
+            <h2>Ceos Will Be Here</h2>
+            <p>Here I Am!!</p>
             <ul>
                 {data.map((ceo,index) => {
                     return (
                         <li key={index}>
-                            {ceo.name} - {ceo.year}
+                           <Link to={ceo.slug}> {ceo.name} - {ceo.year}</Link>
                         </li>
                     );
 
